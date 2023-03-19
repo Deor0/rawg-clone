@@ -1,11 +1,17 @@
-import { HStack, Image } from "@chakra-ui/react";
+import { HStack, Image, Text } from "@chakra-ui/react";
 import logo from "../assets/logo.webp";
 import ColorModeSwitch from "./ColorModeSwitch";
 
 const NavBar = () => {
+  const name = "RAWG";
   return (
     <HStack justifyContent="space-between" padding="10px 20px">
-      <Image src={logo} boxSize="60px" />
+      {/* <Image src={"https://rawg.io/assets/en/share-vk.png?v=4"} boxSize="60px" /> */}
+      <HStack fontWeight="800">
+        {name.split("").map((char) => (
+          <span>{char}</span>
+        ))}
+      </HStack>
       <ColorModeSwitch />
     </HStack>
   );

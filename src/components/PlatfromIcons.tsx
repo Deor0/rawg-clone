@@ -27,7 +27,7 @@ const PlatfromIcons = ({ platforms }: Props) => {
     linux: FaLinux,
     ios: MdPhoneIphone,
     web: BsGlobe,
-    andriod: FaAndroid,
+    android: FaAndroid,
   };
 
   return (
