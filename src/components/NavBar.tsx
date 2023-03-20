@@ -9,7 +9,7 @@ const NavBar = () => {
       {/* <Image src={"https://rawg.io/assets/en/share-vk.png?v=4"} boxSize="60px" /> */}
       <HStack fontWeight="800">
         {name.split("").map((char) => (
-          <span>{char}</span>
+          <span key={name.indexOf(char)}>{char}</span>
         ))}
       </HStack>
       <ColorModeSwitch />
