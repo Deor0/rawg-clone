@@ -1,12 +1,12 @@
 import { HStack, Image, Text } from "@chakra-ui/react";
 import logo from "../assets/logo.webp";
 import ColorModeSwitch from "./ColorModeSwitch";
+import SearchInput from "./SearchInput";
 
 const NavBar = () => {
   const name = "RAWG";
   return (
-    <HStack justifyContent="space-between" padding="10px 20px">
-      {/* <Image src={"https://rawg.io/assets/en/share-vk.png?v=4"} boxSize="60px" /> */}
+    <HStack padding="10px 20px">
       <a href="/">
         <HStack fontWeight="800" cursor="pointer" fontSize={"lg"}>
           {name.split("").map((char) => (
@@ -14,6 +14,7 @@ const NavBar = () => {
           ))}
         </HStack>
       </a>
+      <SearchInput />
       <ColorModeSwitch />
     </HStack>
   );
