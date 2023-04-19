@@ -1,6 +1,7 @@
-import { Flex, Grid, GridItem, Show } from "@chakra-ui/react";
+import { Box, Flex, Grid, GridItem, Show } from "@chakra-ui/react";
 import { useState } from "react";
 import GameGrid from "./components/GameGrid";
+import GameHeading from "./components/GameHeading";
 import GenreList from "./components/GenreList";
 import NavBar from "./components/NavBar";
 import PlatformSelector from "./components/PlatformSelector";
@@ -37,7 +38,7 @@ function App() {
         />
       </GridItem>
       <Show above="lg">
-        <GridItem area={"aside"} paddingX={5} paddingY={10}>
+        <GridItem area={"aside"} paddingX={5} paddingY={5}>
           <GenreList
             selectedGenre={gameQuery.genre}
             onSelectGenre={(genre) => setGameQuery({ ...gameQuery, genre })}
@@ -45,20 +46,23 @@ function App() {
         </GridItem>
       </Show>
       <GridItem area={"main"}>
-        <Flex gap={4} paddingLeft={2} marginBottom={3}>
-          <PlatformSelector
-            selectedPlatform={gameQuery.platform}
-            onSelectPlatform={(platform) =>
-              setGameQuery({ ...gameQuery, platform })
-            }
-          />
-          <SortSelector
-            sortOrder={gameQuery.sortOrder}
-            onSelectedSortOrder={(sortOrder) =>
-              setGameQuery({ ...gameQuery, sortOrder })
-            }
-          />
-        </Flex>
+        <Box paddingLeft={2}>
+          <GameHeading gameQuery={gameQuery} />
+          <Flex gap={4} marginBottom={3}>
+            <PlatformSelector
+              selectedPlatform={gameQuery.platform}
+              onSelectPlatform={(platform) =>
+                setGameQuery({ ...gameQuery, platform })
+              }
+            />
+            <SortSelector
+              sortOrder={gameQuery.sortOrder}
+              onSelectedSortOrder={(sortOrder) =>
+                setGameQuery({ ...gameQuery, sortOrder })
+              }
+            />
+          </Flex>
+        </Box>
         <GameGrid gameQuery={gameQuery} />
       </GridItem>
     </Grid>
