@@ -12,14 +12,8 @@ interface Props {
 }
 
 const GameGrid = ({ gameQuery }: Props) => {
-  const {
-    data,
-    error,
-    isLoading,
-    isFetchingNextPage,
-    fetchNextPage,
-    hasNextPage,
-  } = useGames(gameQuery);
+  const { data, error, isLoading, fetchNextPage, hasNextPage } =
+    useGames(gameQuery);
   const skeletons = "1,2,3,4,5,6,7,8,9,10,11,12".split(",");
 
   if (error) return <Text>{error.message}</Text>;
@@ -35,7 +29,7 @@ const GameGrid = ({ gameQuery }: Props) => {
       loader={<Spinner />}
     >
       <SimpleGrid
-        columns={{ sm: 1, md: 2, lg: 4, xl: 4 }}
+        columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
         spacing={7}
         padding="10px"
       >
