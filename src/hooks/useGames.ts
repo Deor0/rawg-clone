@@ -3,6 +3,7 @@ import { GameQuery } from "../App";
 import APIClient from "../services/api-client";
 import { FetchResponse } from "../services/api-client";
 import { Platform } from "../hooks/usePlatforms";
+import { StatLabel } from "@chakra-ui/react";
 
 const apiClient = new APIClient<Game>("games");
 export interface Game {
@@ -30,6 +31,7 @@ const useGames = (gameQuery: GameQuery) =>
     getNextPageParam: (lastPage, allPage) => {
       return lastPage.next ? allPage.length + 1 : undefined;
     },
+    staleTime: 24 * 60 * 60 * 1000, // 24 hrs
   });
 
 export default useGames;
