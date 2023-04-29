@@ -3,7 +3,6 @@ import { GameQuery } from "../App";
 import APIClient from "../services/api-client";
 import { FetchResponse } from "../services/api-client";
 import { Platform } from "../hooks/usePlatforms";
-import { StatLabel } from "@chakra-ui/react";
 
 const apiClient = new APIClient<Game>("games");
 export interface Game {
@@ -21,8 +20,8 @@ const useGames = (gameQuery: GameQuery) =>
     queryFn: ({ pageParam = 1 }) =>
       apiClient.getAll({
         params: {
-          genres: gameQuery.genre?.id,
-          parent_platforms: gameQuery.platform?.id,
+          genres: gameQuery.genreId,
+          parent_platforms: gameQuery.platformId,
           ordering: gameQuery.sortOrder,
           search: gameQuery.searchValue,
           page: pageParam,
