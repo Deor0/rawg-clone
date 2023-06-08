@@ -2,11 +2,7 @@ import { HStack } from "@chakra-ui/react";
 import ColorModeSwitch from "./ColorModeSwitch";
 import SearchInput from "./SearchInput";
 
-interface Props {
-  onSearch: (searchValue: string) => void;
-}
-
-const NavBar = ({ onSearch }: Props) => {
+const NavBar = () => {
   const name = "RAWG";
   return (
     <HStack padding="10px 20px">
@@ -17,7 +13,7 @@ const NavBar = ({ onSearch }: Props) => {
           ))}
         </HStack>
       </a>
-      <SearchInput onSearch={onSearch} />
+      <SearchInput />
       <ColorModeSwitch />
     </HStack>
   );
